@@ -1,0 +1,126 @@
+/* pages/myInfo/myInfo.wxss */
+.info-head{
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 150rpx;
+  /* background-color: royalblue; */
+}
+
+.info-avatar{
+  width: 110rpx;
+  height: 110rpx;
+  margin-left: 30rpx;
+  border-radius: 55rpx;
+}
+
+.info-right{
+  width: 70%;
+  height: 100%;
+  margin-left: 40rpx;
+  /* background-color: sandybrown; */
+}
+
+.name-info{
+  height: 60%;
+  display: flex;
+  align-items: center;
+}
+.info-nickname{
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.info-gender{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 30rpx;
+}
+
+.info-constellation{
+  width: 130rpx;
+  height: 40rpx;
+  display: flex;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+}
+
+.info-introduce{
+  font-size: 30rpx;
+  height: 40%;
+  font-weight: 500;
+  color: #A8A8A8;
+  font-family: 'Times New Roman', Times, serif;
+  margin-top: 10rpx;
+}
+
+.info-content{
+  width: 100%;
+  height: 70vh;
+  margin-top: 30rpx;
+  /* background-color: rosybrown; */
+}
+
+.van-cell{
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 34rpx !important;
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.van-cell__value{
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 30rpx !important;
+  color: #ffffff !important;
+}
+
+.van-cell__right-icon-wrap{
+  color: #ffffff !important;
+}
+
+.input-nickname{
+  border-radius: 20rpx;
+  margin: 20rpx 20rpx 20rpx 20rpx;
+  height: 100rpx;
+  background-color:#A8A8A850;
+}
+
+.contact-view{
+  display: flex;
+  margin-left: 50rpx;
+  /* justify-items: center; */
+  /* align-items: center; */
+  margin-top: 30rpx;
+  flex-direction: column;
+}
+
+.phone-img{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+.phone-view{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.address-view{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.address-img{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}

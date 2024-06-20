@@ -1,0 +1,22 @@
+<!--pages/message/myOrder/myOrderForm.wxml-->
+<view class="container page-order">
+  <van-overlay show="{{ showLoad }}">
+    <view class="wrapper">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+  </van-overlay>
+  <view wx:if="{{orderList.length==0}}" class="view-empty">
+    <van-empty
+          image="/images/message/empty-image-default.png"
+          description="您还没有参与拼桌哦～"
+        />
+  </view>
+  <scroll-view class="list-order" scroll-y="true"  scroll-with-animation="true" refresher-enabled="true" bindrefresherrefresh="reloadData" refresher-triggered="{{triggered}}">
+    <view class="list-content">
+      <block wx:for="{{orderList}}" wx:key="index">
+       <sb-order-cell order="{{item}}" userInfo="{{myInfo}}" class="order-cell" bind:leaveFromTable="leaveFromTable" />
+      </block>
+    </view>
+    
+  </scroll-view>
+</view>

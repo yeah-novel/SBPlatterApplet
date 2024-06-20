@@ -1,0 +1,8 @@
+<!--components/SBSwiper/SBSwiper.wxml-->
+<swiper class="swiper-box"  autoplay="true" interval="3000" circular="true" indicator-color="white" indicator-dots="true" indicator-active-color="#d85134" >
+  <block wx:for="{{images}}" wx:key="index">
+    <swiper-item>
+      <image class="swiper-image" src="{{item}}" mode="aspectFill"/>
+    </swiper-item>
+  </block>
+  </swiper>

@@ -1,0 +1,23 @@
+<!--index.wxml-->
+
+<view class="container" style="background-color: #000000; height: 100vh; width: 100vw;" >
+  <van-overlay show="{{ showLoad }}">
+    <view class="wrapper">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+  </van-overlay>
+  <view class="msg-top">
+    <image class="msg-pz msg-image" src="/images/message/apply_img.png" bindtap="jumpToMyOrder"/>
+    <image class="msg-chatroom msg-image" src="/images/message/chatRoom.png" bindtap="toAllChatroom"/>
+  </view>
+<!-- 首页导航栏 -->
+
+  <!-- 消息列表-->
+  <scroll-view class="list-scroll" enable-flex="true" scroll-y="true"  scroll-with-animation="true" style="height: 85vh; width: 100vw;" refresher-enabled="true" bindrefresherrefresh="reloadData" refresher-triggered="{{triggered}}">
+    <sb-message-cell class="table-cell"  message="{{sysMsgItem}}"  curIndex="-1" bind:toChatroom="toChatroom"/>
+    <block wx:for="{{messageList}}" wx:key="index">
+      <sb-message-cell class="table-cell"  message="{{item}}" curIndex="{{index}}" bind:deleteMsg="deleteMessage" bind:toChatroom="toChatroom"/>
+    </block>
+  </scroll-view>  
+
+</view>

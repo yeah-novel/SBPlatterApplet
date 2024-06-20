@@ -1,0 +1,33 @@
+
+//判断是否在营业时间里
+var time = function(startTime, endTime){
+  var date = getDate();
+  var hour = date.getHours()//时
+  return (hour >= startTime || hour <= endTime) ? true : false;
+}
+
+//时间戳转日期
+var dateTime = function(timestamp){
+  var wholeDate = getDate(timestamp * 1000)
+  var month = wholeDate.getMonth() + 1
+  var day = wholeDate.getDate()
+  var hour = wholeDate.getHours()
+  var minute = wholeDate.getMinutes()
+  return  month+'-'+day+' '+hour+':'+minute
+}
+
+var formatDate = function(dateStr){
+  var wholeDate = getDate(dateStr)
+  var month = wholeDate.getMonth() + 1
+  var day = wholeDate.getDate()
+  var hour = wholeDate.getHours()
+  var minute = wholeDate.getMinutes()
+  return month+'-'+day+' '+hour+':'+minute
+}
+
+
+module.exports = {
+  time: time,
+  dateTime: dateTime,
+  formatDate: formatDate
+}

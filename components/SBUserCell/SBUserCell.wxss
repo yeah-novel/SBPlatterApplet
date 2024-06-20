@@ -1,0 +1,86 @@
+/* components/SBUserCell/SBUserCell.wxss */
+.user-content{
+  width: 40vw;
+  height: 230rpx;
+  background-color: rgba(42, 73,56, 0.7);
+  margin: 20rpx 20rpx;
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow:inset 0px 4px 4px rgba(255, 255, 255, 0.3);
+}
+.head{
+  margin-top: -30rpx;
+  display: flex;
+  height: 80rpx;
+}
+
+.host-image{
+  /* position: fixed; */
+  /* margin-top:-40rpx ; */
+  width: 60%;
+  height: 60rpx;
+}
+
+.tag-view{
+  width: 40%;
+  height: 45rpx;
+  font-size: 24rpx; 
+  margin-top: 20rpx;
+  background-color: rgb(231, 36, 22);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0rpx 20rpx 0rpx 20rpx;
+}
+
+.user-top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40%;
+  margin-top: -20rpx;
+  /* background-color: sienna; */
+}
+
+
+
+.user-avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  border: 2px solid #ffffff;
+}
+
+.user-nickname{
+  margin-left: 20rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+}
+
+.user-gender{
+  width: 40rpx;
+  height: 40rpx;
+  /* background-color: slategrey; */
+  margin-left: 10rpx;
+}
+
+.user-bottom{
+  /* background-color: slateblue; */
+  width: 100%;
+  height: 38%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.info-text{
+  font-size: 30rpx;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ffffff;
+}
+

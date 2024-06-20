@@ -1,0 +1,48 @@
+<!--components/SBTableCell/sbTableCell.wxml-->
+<view class="cell-content" style="background-color: {{orderType=='book'?(orderIndex % 2?'rgba(74, 74, 74, 0.4)':'rgba(147, 66, 42, 0.4)'):(orderIndex % 2?'rgba(83, 90, 90, 0.4)':'rgba(249, 246, 246, 0.4)')}};"> 
+  <view class="cell-top">
+    <view class="cell-left">
+      <text class="table-num">No.\n{{cellData.tableNo}}</text>
+    </view>
+    <view class="cell-right">
+      <view class="right-top">
+        <text class="cell-theme">"{{cellData.theme}}"</text>
+        <view class="tag-num">
+        <text>{{cellData.members.length}} / {{cellData.upNum}}</text>
+        </view>
+      </view>
+
+      <view class="cell-time">
+        <image class="time-image" src="/images/time.png"></image>
+        <text class="time-text">{{cellData.time}}</text>
+        <view class="pay-text">¥ {{cellData.payment}}</view>
+      </view>
+      
+    </view> 
+  </view>
+  <view class="cell-bottom">
+    <view class="avatar-list">
+      <block wx:for="{{cellData.members}}" wx:key="index" wx:if="{{index<6 && index<cellData.upNum}}"> 
+        <block wx:if="{{item.gender=='fmale'}}">
+          <image class="cell-avatar-fmale"  src="{{item.avatar}}" /> 
+        </block>
+        <block wx:else>
+          <image class="cell-avatar-male"  src="{{item.avatar}}" />
+        </block>
+      </block> 
+    </view>
+    <view class="cell-gender">{{cellData.gender}}</view>
+    <block wx:if="{{isIn}}">
+      <button class="cell-state"  bind:tap="toDetailPage" >已加入</button>
+    </block>
+    <block wx:else>
+      <button wx:if="{{cellData.state==2}}" class="full-state">已完成</button>
+      <button class="full-state" wx:if="{{cellData.members.length >= cellData.upNum && cellData.state==1}}" >人员已满</button>
+      <button wx:if="{{cellData.members.length < cellData.upNum && cellData.state==1}}" class="join-state"  bind:tap="toDetailPage" >加入拼桌</button>
+      
+    </block>
+   
+  </view> 
+
+</view>
+

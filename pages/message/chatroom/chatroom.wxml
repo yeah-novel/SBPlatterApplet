@@ -1,0 +1,69 @@
+<!--pages/message/chatroom/chatroom.wxml-->
+<wxs module="util" src="/util/timeUitl.wxs" />
+<view class="container">
+  <van-overlay show="{{ showDialog}}" bind:click="onClickHide">
+    <view class="wrapper" >
+      <van-loading size="24px" vertical wx:if="{{showLoad}}">加载中...</van-loading>
+      <image wx:if="{{showImage!=''}}" mode="aspectFit" src="{{showImage}}" class="big-image" />
+    </view>
+    
+  </van-overlay>
+  <view wx:if="{{classType=='group'}}" class="chat-top">
+    <view  class="avatar-list">
+      <block wx:for="{{members}}" wx:key="index" wx:if="{{index<10}}"> 
+        <image class="cell-avatar"  src="{{item.avatar}}" /> 
+      </block> 
+    </view>
+  </view>
+  <van-notice-bar wx:if="{{classType=='all'}}"
+    scrollable = "true" left-icon="volume-o" background="#57B77D" color="#ffffff"  style="width: 100%;"
+      text="聊天室中请保持文明用语，低俗、色情、政治敏感、广告等不良聊天内容将会被严厉处理！"
+    />
+  <!-- 消息列表-->
+  <scroll-view class="list-scroll" enable-flex="true" scroll-y="true"  scroll-with-animation="true" scroll-into-view="{{scrollTo}}" style="height: {{classType=='system'?95:80}}vh;">
+    <view  class="cu-chat">
+      <block wx:for="{{messageList}}" wx:key="index">
+        <!-- 自已发送的 -->
+        <view wx:if="{{myInfo._id == item.from_id}}" class="self-item" id="msg-{{index}}">
+          <view class="self-item-top">
+            <text class="time">{{util.dateTime(item._id)}}</text>
+            <image class="self-avatar radius" src="{{myInfo.avatar}}"/>
+          </view>
+          <view wx:if="{{item.content_type=='text'}}" class="bg-green">
+            <text class="self-text">{{item.content}}</text>
+          </view>
+          <image class="self-image" wx:if="{{item.content_type=='image'}}" src="{{item.content}}" mode="aspectFit" bindtap="showImage" data-src="{{item.content}}"/>
+          
+        </view>
+        <!-- 系统发送的 -->
+        <view wx:if="{{item.from_id=='system'}}" class="cu-item" id="msg-{{index}}">
+          <view class="other-item-top">
+            <image class="system-avatar" src="/images/message/msg_icon.png" />
+            <text class="other-time">{{util.dateTime(item._id)}}</text>
+          </view>
+          <view class="content" wx:if="{{item.content_type=='text'}}">
+            <text class="system-text" >{{item.content}}</text>
+          </view>
+        </view>
+        <!-- 别人发送的 -->
+        <view wx:if="{{item.from_id!='system' && myInfo._id != item.from_id}}" class="cu-item" id="msg-{{index}}">
+          <view class="other-item-top">
+            <image class="cu-avatar radius" src="{{item.from_avatar}}" />
+            <text class="nickname other-nickname">{{item.from_name}}</text>
+            <text class="other-time">{{util.dateTime(item._id)}}</text>
+          </view>
+          <view class="content" wx:if="{{item.content_type=='text'}}">
+            <text class="other-text" >{{item.content}}</text>
+          </view>
+          <image class="other-image" wx:if="{{item.content_type=='image'}}" src="{{item.content}}" mode="aspectFit" bindtap="showImage" data-src="{{item.content}}"/>
+        </view>
+      </block>
+    </view>
+
+  </scroll-view>  
+  <view class="chat-bottom" wx:if="{{classType!='system'}}">
+    <input class="input-text"  data-name="content" placeholder="发个消息～" focus="false" maxlength="300" cursor-spacing="10" bindfocus="InputFocus" bindblur="InputBlur" bindinput="handleInput" value="{{content}}" />
+    <image class="input-image" bindtap="addImage" src="/images/message/img_icon.png" />
+    <button class="btn-send" bindtap="sendMsg" >发送</button>
+  </view>
+</view>

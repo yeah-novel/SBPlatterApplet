@@ -1,0 +1,24 @@
+<!--components/messageCell/messageCell.wxml-->
+<wxs module="util" src="/util/timeUitl.wxs" />
+<van-swipe-cell class="swipe-cell" right-width="{{message.class=='system'? 0 : 50 }}"   async-close bind:close="deleteMsg" > 
+    <view class="cell-content" bindtap="toChatroom">
+    <view class="cell-left">
+      <image class="cell-avatar" wx:if="{{message.avatar!=''}}" src="{{message.avatar}}" />
+      <view class="view-tableNo" wx:if="{{message.avatar==''}}">{{message.from_id[0]+message.from_id[1]}}</view>
+    </view>
+    <view class="cell-right">
+      <view class="cell-top">
+        <text class="nickname" >{{message.name}}</text>
+        <text class="cell-time">{{message.time==''? '':util.dateTime(message.time)}}</text>
+      </view>
+      <view class="cell-bottom">
+        <text class="message" >{{message.content}}</text>
+        <label class="cell-tag" wx:if="{{message.hasUnread}}"></label>
+      </view>
+    </view>
+  </view>
+  <view slot="right" class="delete">
+    <text>删除</text>
+  </view>
+</van-swipe-cell>
+

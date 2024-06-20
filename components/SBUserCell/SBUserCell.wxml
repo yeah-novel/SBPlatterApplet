@@ -1,0 +1,20 @@
+<!--components/SBUserCell/SBUserCell.wxml-->
+<view class="user-content">
+    <view class="head">
+      <image class="host-image" mode="aspectFit" wx:if="{{index==0}}"  src="/images/index/host_icon.png" />
+    <text class="tag-view" wx:if="{{userInfo.state}}">已到店</text>
+    </view>
+    <view class="user-top">
+      <image class="user-avatar" src="{{userInfo.avatar}}" />
+      <text class="user-nickname">{{userInfo.nickname}}</text>
+    </view>
+    <view class="user-bottom">
+      <block wx:if="{{userInfo.gender == 'fmale'}}">
+        <image class="user-gender" src="/images/myInfo/fmale_icon.png" />
+      </block>
+      <block wx:else>
+        <image class="user-gender"  src="/images/myInfo/male_icon.png" />
+      </block>
+      <text class="info-text">/ {{userInfo.constellation}}</text>
+    </view>
+</view>

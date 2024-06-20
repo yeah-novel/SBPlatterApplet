@@ -1,0 +1,5 @@
+<!--components/SBNoUserCell/SBNoUserCell.wxml-->
+<view class="user-content"> 
+    <image class="default-avatar" src="/images/avatarDefault.png" /> 
+    <text class="default-text"> 期待你的加入 </text> 
+</view> 

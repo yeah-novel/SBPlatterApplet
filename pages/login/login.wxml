@@ -1,0 +1,48 @@
+<!--pages/login/login.wxml-->
+<view class="container page-login" >
+  <!--  加载view  -->
+  <van-overlay show="{{ showLoad }}" >
+    <view class="wrapper">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+  </van-overlay>
+  <!--  生日picker  -->
+  <van-overlay show="{{ showTimePicker }}" >
+    <van-picker class="time-picker" title="选择时间" show-toolbar="true" visible-item-count="5" columns="{{ timeCell }}" bind:cancel="cancelPicker" bind:confirm="onConfirm" />
+  </van-overlay>
+  <view class="view-logo">
+    <image class="img-icon" mode="aspectFit" src="/images/logo.png"/>
+  </view>
+  <view class="view-info">
+    <!-- 头像昵称  -->
+    <view class="view-head">
+      <image class="img-avatar" src="{{avatar}}" bindtap="onChooseAvatar"/>
+      <view class="head-right">
+        <input bindinput="addNickname" class="input-nickname" type="text" placeholder="  请输入昵称" />
+        <!-- 输入生日 -->
+        <view bindtap="changeTime"class="input-birth">{{time}}</view>
+      </view>
+    </view>
+
+    <!-- 性别选择  -->
+    <view class="view-gender">
+      <block wx:if="{{gender=='fmale'}}">
+        <view class="gender-fmale" bindtap="changeGender" data-name="fmale" style="background-color:rgba(240, 118, 164, 0.7);" >
+          <image  class="img-gender" src="/images/myInfo/fmale_icon.png" />
+        </view>
+        <view class="gender-male" bindtap="changeGender" data-name="male" style="background-color: silver;">
+          <image class="img-gender"  src="/images/myInfo/male_icon.png" />
+        </view>
+      </block>
+      <block wx:else>
+        <view class="gender-fmale" bindtap="changeGender" data-name="fmale" style="background-color:silver;" >
+          <image  class="img-gender" src="/images/myInfo/fmale_icon.png" />
+        </view>
+        <view class="gender-male" bindtap="changeGender" data-name="male" style="background-color: skyblue;">
+          <image class="img-gender"  src="/images/myInfo/male_icon.png" />
+        </view>
+      </block>
+    </view>
+    <button class="btn-signup"  bind:tap="signUp">注册并登录</button>  
+  </view>
+</view>

@@ -1,0 +1,140 @@
+/* pages/message/message.wxss */
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.msg-top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 15vh;
+  width: 100vw;
+}
+
+.msg-image{
+  width: 40%;
+  height: 90%;
+  border-radius: 30rpx;
+  margin-left: 7vw;
+}
+
+.list-scroll{
+  width: 100vw;
+  display: flex;
+  margin-top: 10rpx;
+  height: 70vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.list-scroll ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.list-scroll{
+  width: 100vw;
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.cu-chat{
+  width: 100vw;
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.cu-item{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* background-color:seagreen; */
+  margin-top: 20rpx;
+}
+
+.self{
+  margin-left: 20vw;
+}
+
+.cu-avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-left: 20rpx;
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  width: 60vw;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background-color: rgba(49, 100, 136, 0.5);
+  margin-left: 20rpx;
+}
+
+.text-content{
+  margin-left: 20rpx;
+  font-size: 34rpx;
+  color: #ffffff;
+}
+
+.bg-green{
+  background: -webkit-linear-gradient(left,rgba(96.02,67,255,1.00) ,rgba(54,209,241,0.70));
+  box-shadow: 0px 15px 30px rgba(20, 102, 204, 0.16);
+}
+.chat-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100rpx;
+}
+
+.input-text{
+  width: 65%;
+  height: 90%;
+  background-color: rgb(22, 48, 67);
+  color: #ffffff;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  border-radius: 20rpx;
+}
+
+
+.input-image{
+  width: 10%;
+  height: 80rpx;
+  margin-left: 10rpx;
+  background-color:rgba(0, 0, 0, 0);
+}
+
+.btn-send{
+  width: 18%;
+  height: 80%;
+  margin-left: 10rpx;
+  background: rgb(31, 60, 81);
+  box-shadow: 0px 15px 30px rgba(20, 102, 204, 0.16);
+  border-radius: 20rpx ;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+
+van-empty{
+  width: 150rpx;
+  height: 200rpx;
+}

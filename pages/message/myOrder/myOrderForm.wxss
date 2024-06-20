@@ -1,0 +1,36 @@
+/* pages/message/myOrder/myOrderForm.wxss */
+.page-order{
+  display: flex;
+}
+
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-empty{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-order{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  height: 90vh; 
+  width: 100vw;
+}
+
+.list-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10rpx;
+}

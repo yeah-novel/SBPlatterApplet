@@ -1,0 +1,73 @@
+<!--pages/index/applyTable/applyTable.wxml-->
+<view class="container page-apply"  >
+ 
+  <view class="page-head">
+    <image src="/images/index/book_note.png" style="width: 180rpx; height: 180rpx; display: flex; box-sizing: border-box">  
+    </image>
+    <text class="note-text" wx:if="{{type=='book'}}">预约拼桌须知：\n1. 只开放当天的预约\n2.群主在18:00前确认拼桌是否成功，拼桌成功后需要提前半小时到店，过时作废\n3. 预约成功后可在消息页面的"我的拼桌"里面查看\n</text>
+    <text class="note-text" wx:if="{{type!='book'}}">现场拼桌须知：\n1. 现场拼桌请选择所在桌号\n2. 发起拼桌后可在消息页面的"我的拼桌"里面查看\n</text> 
+  </view>
+  <scroll-view class=" page-content" enable-flex="true" scroll-y="true"  scroll-with-animation="true" style="height: 64vh; width: 100vw; ">
+    
+    <view class="filter-item1 table-no">
+      <label>可选桌号 *</label>
+      <van-dropdown-menu >
+        <van-dropdown-item name="tableNo" value="{{ value1 }}" options="{{ tableList }}" bind:change="changeTableNo"/>
+      </van-dropdown-menu>
+    </view>
+    <view class="filter-item1 table-num">
+      <label>拼桌人数(含自己) *</label>
+      <van-stepper value="{{ 1 }}" integer min="1" max="{{upNum}}"
+        bind:change="changeTotalNum"
+      />
+    </view>
+
+    <view class="filter-item1 table-time" wx:if="{{type=='book'}}">
+      <label>预约时间 *</label>
+
+      <view bindtap="changeTime" class="input-time">
+      {{time}}</view>
+    </view>
+
+    <view class="filter-item2 table-gender">
+      <label>支付方式</label>
+      <van-radio-group value="{{ payment }}" bind:change="changePayment" direction="horizontal" >
+        <van-radio icon-size="15px" name="AA" >每人均摊</van-radio>
+        <van-radio icon-size="15px" name="男A女免" >男均女免</van-radio>
+        <van-radio icon-size="15px" name="男免女A" >女均男免</van-radio>
+      </van-radio-group>
+    </view>
+
+    <view class="filter-item2 table-gender">
+      <label>拼桌意向 *</label>
+      <van-radio-group value="{{ gender }}" bind:change="changeGender" direction="horizontal" >
+        <van-radio icon-size="15px" name="仅限女生" >仅限女生</van-radio>
+        <van-radio icon-size="15px" name="仅限男生" >仅限男生</van-radio>
+        <van-radio icon-size="15px" name="男女不限" >男女不限</van-radio>
+      </van-radio-group>
+
+    </view>
+
+    <view class="filter-item2 table-theme">
+      <label style="width: 200rpx; height: 61rpx; display: block; box-sizing: border-box">拼桌主题 *</label>
+      <van-cell-group inset>
+        <van-field
+          name="theme"
+          value="{{ theme }}"
+          label=""
+          type="textarea"
+          placeholder="请输入拼桌主题"
+          autosize clearable="true"
+          maxlength = "25"
+          show-word-limit = "true"
+          title-width="0"
+          bind:change="changeTheme"
+        />
+      </van-cell-group>
+    </view>
+  </scroll-view>
+  <button class="btn-apply" bind:tap="applyConfirm" >发起拼桌</button>
+  <van-overlay show="{{ showTimePicker }}" >
+    <van-picker class="time-picker" title="选择时间" show-toolbar="true" visible-item-count="5" columns="{{ timeCell }}" bind:cancel="cancelPicker" bind:confirm="onConfirm" />
+  </van-overlay>
+</view>

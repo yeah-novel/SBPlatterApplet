@@ -1,0 +1,27 @@
+<wxs module="util" src="/util/timeUitl.wxs" />
+<view class="cell-view">
+  <view class="cell-content">
+    <view class="cell-title">
+      <text class="title-text">拼桌信息</text>
+      <button class="cell-detail" bindtap="toDetailPage" wx:if="{{order.state!=0}}">查看详情</button>
+    </view>
+    
+    <view class="cell-top">
+      <view class="top-right">
+          <text class="top-text">拼桌主题：{{order.theme}}</text>
+          <!-- <text class="top-text">选择门店：{{orderInfo.storeName}}</text> -->
+          <text class="top-text">预约桌号：{{order.tableNo}}桌</text>
+          <text class="top-text">预约时间：{{order.time}}</text>
+          <text class="top-text">创建时间：{{util.dateTime(order.create_time)}}</text>
+      </view>
+    </view>
+    <view class="cell-bottom" wx:if="{{order.state!=0 && !hasArrived}}"> 
+      <button class="cell-button cancel-button" bindtap="leaveFromTable">退出拼桌</button> 
+      <button class="cell-button confirm-button" bindtap="hasArrived">已到店</button> 
+    </view>
+    <view class="diable-bottom"> 
+      <image src="/images/message/disable_icon.png" class="state-image" wx:if="{{order.state==0}}"/> 
+      <image src="/images/message/arrived_icon.png" class="state-image" wx:if="{{hasArrived}}"/> 
+    </view>
+  </view>
+</view>

@@ -1,0 +1,81 @@
+<!--index.wxml-->
+
+<wxs module="util" src="/util/timeUitl.wxs" />
+
+<view class="container page-index"  >
+  <van-overlay show="{{ showLoad }}" >
+    <view class="wrapper">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+  </van-overlay>
+  <!-- 图片轮播 -->
+  <sb-swiper class="top-swiper"></sb-swiper>
+
+  <!-- 首页导航栏 -->
+  <van-tabs class="navbar" type="card" color="#6043FF"  style="width: 100vw; height: 80vh; display: block; box-sizing: border-box" bind:change="changeTab">
+    <!-- 现场拼桌 -->
+    <van-tab  title="现场拼桌" name="live"> 
+      <block wx:if="{{util.time(18 , 2)}}">
+        <!-- 筛选条件 -->
+        <van-dropdown-menu  active-color="#57B77D" color="#ffffff" overlay="false">
+          <van-dropdown-item value="{{ tableNo }}" options="{{ tables }}" bind:change="filterTabelNo" />
+          <van-dropdown-item  value="{{ gender }}" options="{{ option3 }}" bind:change="filterGender"/>
+        </van-dropdown-menu>
+
+      <!-- 拼桌列表 -->
+        <scroll-view class="list-scroll" enable-flex="true" scroll-y="true"  scroll-with-animation="true" style="height: {{scrollHeight}}rpx; " refresher-enabled="true" bindrefresherrefresh="reloadData" refresher-triggered='{{triggered}}' refresher-threshold="{{50}}">
+          <block wx:for="{{cellData}}" wx:key="index"> 
+            <sb-table-cell wx:key="tableNo" allOrderList="{{allOrderList}}"  cellData="{{item}}" class="table-cell" orderIndex="{{index}}" orderType="{{tabTitle}}" ></sb-table-cell> 
+          </block> 
+          <van-empty wx:if="{{cellData.length==0}}"
+            image="/images/message/empty-image-default.png"
+            description="没有符合的拼桌哦～"
+          />
+        </scroll-view> 
+       
+      </block>
+      <block wx:else>
+        <van-empty
+          image="/images/index/book_note.png"
+          description="本店已打烊，请前往预约拼桌 ..."
+        />
+      </block>
+      
+    </van-tab>
+
+    <!-- 预约拼桌 -->
+    <van-tab  title="预约拼桌" name="book">
+      <block wx:if="{{!util.time(18 , 2)}}">
+        <!-- 筛选条件 -->
+        <van-dropdown-menu  active-color="#ff0000" color="#ffffff">
+          <van-dropdown-item  value="{{ tableNo }}" options="{{ tables }}" bind:change="filterTabelNo" />
+          <van-dropdown-item  value="{{ gender }}" options="{{ option3 }}" bind:change="filterGender"/>
+        </van-dropdown-menu>
+
+      <!-- 拼桌列表 -->
+        <scroll-view class="list-scroll" enable-flex="true" scroll-y="true"  scroll-with-animation="true" style="height: {{scrollHeight}}rpx; " refresher-enabled="true" bindrefresherrefresh="reloadData" refresher-triggered='{{triggered}}'>
+          <block wx:for="{{cellData}}" wx:key="index"> 
+            <sb-table-cell wx:key="tableNo" allOrderList="{{allOrderList}}"  cellData="{{item}}" class="table-cell" orderIndex="{{index}}" orderType="{{tabTitle}}" ></sb-table-cell> 
+          </block> 
+          <van-empty wx:if="{{cellData.length==0}}"
+          class="custom-image"
+          image="/images/message/empty-image-default.png"
+          description="没有符合的拼桌哦～"
+          />
+        </scroll-view> 
+      </block>
+      <block wx:else>
+        <van-empty
+          class="custom-image"
+          image="/images/index/book_note.png"
+          description="营业中，不可预约..."
+        />
+
+      </block>
+    
+    </van-tab>
+  </van-tabs>
+  <button class="apply-button apply-live-button" bind:tap="applyTopz" wx:if="{{tabTitle=='live' && util.time(18,2)}}">现场开桌</button>
+  <button class="apply-button apply-book-button"  bind:tap="applyTopz" wx:if="{{tabTitle=='book' && !util.time(18,2)}}">预约开桌</button>
+  
+</view>

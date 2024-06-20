@@ -1,0 +1,52 @@
+<!--pages/index/tableDetail/tableDetail.wxml-->
+<view class="container page-detail"  >
+  <van-overlay show="{{ showLoad }}" >
+    <view class="wrapper">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+  </van-overlay>
+  <!-- 顶部卡片 -->
+  <view class="page-head">
+
+    <view class="cell-top">
+      <view class="cell-left">
+        <text class="table-num">No.\n{{tableInfo.tableNo}}</text>
+      </view>
+      <view class="cell-theme">"{{tableInfo.theme}}"</view>
+    </view>
+    
+    <view class=" cell-bottom">
+      <view class="bottom-left">
+        <text class="time-text" decode='true'>预约时间:&ensp;&ensp;{{tableInfo.time}}</text>
+        <text class="time-text" decode='true'>拼桌意向:&ensp;&ensp;{{tableInfo.gender}}</text>
+        <text class="time-text" decode='true'>支付方式:&ensp;&ensp;{{tableInfo.payment}}</text>
+        <text class="time-text" decode='true'>拼桌状态:&ensp;&ensp;{{tableInfo.state==2?'已完成':'未完成'}}</text>
+      </view>
+      <image class="img-icon" src="/images/index/bg_icon.png" />
+    </view>
+  </view>
+  <!-- 底部用户列表 -->
+  <scroll-view class="page-bottom" enable-flex="true" scroll-y="true"  scroll-with-animation="true">
+
+    <block wx:for="{{tableInfo.upNum}}" wx:for-index="i" wx:key="index" wx:for-item="item" class="cell-row" >   
+            <view class="cell-column">
+                  <block wx:for="{{2}}" wx:key="index" wx:for-index="k" wx:for-item="item_k" >
+                        <block wx:if="{{tableInfo.members[i+item_k] != null && i%2 == 0 }}" >
+                          <sb-user-cell userInfo="{{tableInfo.members[i+item_k]}}" index="{{i+item_k}}"/>
+                        </block>
+                        <block wx:if="{{(i+item_k)<tableInfo.upNum && tableInfo.members[i+item_k] == null && i%2 == 0 }}" > 
+                          <sb-nouser-cell /> 
+                        </block> 
+                  </block>
+            </view>
+   </block>
+    
+  </scroll-view>>
+  <view class="tip-text" decode='true'>* 群主需要在18:00前确认拼桌是否成功，未确认默认失败</view>
+  <view class="bottom-btns">
+    <button class="btn-join"  bind:tap="addToTable" wx:if="{{!isIn}}" >加入拼桌</button>
+    <button class="btn-quit"  bind:tap="leaveFromTable" wx:if="{{isIn}}" >退出拼桌</button>
+    <button class="btn-chat"  bind:tap="navigateToChatroom" wx:if="{{isIn}}">进入群聊</button>
+  </view>
+  <button class="btn-confirm"  bind:tap="confirmPZ" wx:if="{{myInfo._id == tableInfo.members[0]._id}}">拼桌完成</button>
+</view>

@@ -1,0 +1,57 @@
+<!--pages/myInfo/myInfo.wxml-->
+<view class="container page-detail" >
+  <!-- 基本信息 -->
+  <view class="info-head">
+    <image class="info-avatar" src="{{myInfo.avatar}}" bindtap="changeAvatar" />
+    <view class="info-right">
+      <view class="name-info">
+        <text class="info-nickname">{{myInfo.nickname}}</text>
+        <block wx:if="{{myInfo.gender == 'fmale'}}">
+          <image class="info-gender" src="/images/myInfo/fmale_icon.png" />
+        </block>
+        <block wx:else>
+          <image class="info-gender"  src="/images/myInfo/male_icon.png" />
+        </block>
+      </view>
+      <view class="info-constellation" >{{myInfo.constellation}}</view>
+    </view>
+  </view>
+
+  <view class="info-content">
+    <van-cell-group  inset>
+      <van-cell title="昵称" value="{{myInfo.nickname}}" is-link bind:click="showDialog" />
+      <van-cell title="联系我们" value="" is-link bind:click="contactUs" />
+      <van-cell title="隐私政策" value="" is-link bind:click="navigateToPrivate" />
+    </van-cell-group>
+  </view>
+  
+  <!-- 修改昵称弹窗 -->
+  <van-dialog
+    use-slot
+    title="修改昵称"
+    show="{{ changeNameDialog }}"
+    show-cancel-button
+    confirm-button-open-type="getUserInfo"
+    bind:getuserinfo="updateNickname"
+  >
+    <input bindinput="inputNickname"  class="input-nickname" type="text" placeholder="{{myInfo.nickname}}" />
+  </van-dialog>
+  <!-- 联系我们弹窗 -->
+  <van-dialog
+    use-slot
+    title="联系我们"
+    show="{{contactUsDialog}}"
+    bind:close="onClose"
+  >
+    <view class="contact-view">
+      <view class="phone-view">
+        <image class="phone-img" src="/images/myInfo/phone_icon.png"/>
+        <text>17399985988</text>
+      </view>
+      <view class="address-view">
+        <image class="address-img" src="/images/myInfo/address_icon.png"/>
+        <text>武汉市江夏区广信万汇城A座3楼叁杯酒馆</text>
+      </view>
+    </view>
+  </van-dialog>
+</view>

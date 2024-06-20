@@ -1,0 +1,16 @@
+<!--pages/myInfo/privatePolicy/privatePolicy.wxml-->
+<view class="container ">
+  <scroll-view class="private-page" enable-flex="true" scroll-y="true"  scroll-with-animation="true" style="height: 95vh; width: 100vw;">
+    <text class="title-name">叄杯·拼酒馆 隐私政策</text>
+    <text class="text-title">我们向您承诺</text>
+    <text class="text-content">叄杯·拼酒馆尊重并保护所有使用服务用户的个人隐私权。未了给您提供更准确、更有个性化的服务，我们会按照本隐私权限政策的规定使用和披露您的个人信息。除本隐私政策另有规定外，在未征得您同意的情况下，我们不会将这些信息对外公布或向第三方提供。</text>
+    <text class="text-title">一、适用范围</text>
+    <text class="text-content">我们服务均适用于本隐私政策，但某些特定服务还将使用特定的隐私政策，我们将进一步向您提供用户数据指引作为补充。</text>
+    <text class="text-title">二、信息使用</text>
+    <text class="text-content">1. 我们会根据合法、正当、必要和诚信的原则，基于本政策所述的目的，收集和使用您的个人信息。如果我们将您的个人信息用于本政策未载明的其他用途，或基于其他特定目的而收集您的个人信息，我们将以合法的方式告知您，并在使用前再次征得您的同意。</text>
+    <text class="text-content">2. 在您注册账号时，我们将获取您的出生年月日，我们会根据您提供的年月日判断您的年龄，我们只向年满18周岁的成年用户提供服务。我们将在线下门店对用户年龄进行检查，如果您无法出示合法身份证件或此等身份证件上显示的年龄低于18周岁，我们将拒绝您进入门店、参与拼桌与消费。</text>
+    <text class="text-content">3. 在您注册账号时，我们将获取您的性别，我们会基于您的性别信息提供更有针对性和合理的拼桌安排。</text>
+    <text class="text-content">4.信息内容发布，您在参与拼桌和聊天时，我们会根据您发布的内容进行合法合规性的审核，并且会将这些内容作为用户投诉举办时的留存证据。如果您不希望提供上述信息，您将无法使用与信息内容发布的相关功能。</text>
+  </scroll-view>
+  
+</view>

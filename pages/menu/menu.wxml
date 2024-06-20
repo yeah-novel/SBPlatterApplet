@@ -1,0 +1,25 @@
+<!--pages/menu/menu.wxml-->
+<view class="container page-menu">
+  <van-overlay show="{{ showLoad }}">
+    
+    <view class="wrapper">
+      <van-loading size="24px" vertical>加载中...</van-loading>
+    </view>
+  </van-overlay>
+  <view class="right-menu">
+    <scroll-view class="menu-list" scroll-y="true"  scroll-with-animation="true" >
+      <block wx:for="{{menuList}}" wx:key="index">
+        <view class="type-line" wx:if="{{index==0 || menuList[index].type!=menuList[index-1].type}}">
+          <view class="line"></view>
+          <text class="type-text">{{item.type}}</text>
+          <view class="line"></view>
+        </view>
+        <view class="menu-item">
+          <image class="menu-image" src="{{item.image!=''?item.image:'/images/wire_icon.png'}}"/>
+          <text class="menu-name">{{item.name}}</text>
+          <text class="menu-price">¥{{item.price}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+/* pages/myInfo/privatePolicy/privatePolicy.wxss */
+.private-page{
+  display: flex;
+  flex-direction: column;
+}
+
+.title-name{
+  color: aliceblue;
+  font-size: 36rpx;
+  font-weight: 500;
+  margin-left: 30rpx;
+}
+
+.text-title{
+  color: aliceblue;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.text-content{
+  color: aliceblue;
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}

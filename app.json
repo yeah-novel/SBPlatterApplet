@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/myInfo/myInfo",
+    "pages/message/message",
+    "pages/index/tableDetail/tableDetail",
+    "pages/index/applyTable/applyTable",
+    "pages/message/chatroom/chatroom",
+    "pages/message/myOrder/myOrderForm",
+    "pages/menu/menu",
+    "pages/myInfo/privatePolicy/privatePolicy"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#111111",
+    "navigationBarTitleText": "叄杯·拼酒馆",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default"
+  },
+  "usingComponents": {
+    "van-picker": "@vant/weapp/picker/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-empty": "@vant/weapp/empty/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "sb-swiper": "/components/SBSwiper/SBSwiper",
+    "sb-table-cell": "/components/SBTableCell/sbTableCell",
+    "sb-message-cell": "/components/messageCell/messageCell",
+    "sb-user-cell": "/components/SBUserCell/SBUserCell",
+    "sb-nouser-cell": "/components/SBNoUserCell/SBNoUserCell",
+    "sb-order-cell": "/components/orderCell/orderCell"
+  },
+  "tabBar": {
+    "backgroundColor": "#111111",
+    "color": "#ffffff",
+    "selectedColor": "#5a44ec",
+    "list": [
+      {
+        "selectedIconPath": "images/tab_home_select.png",
+        "iconPath": "images/tab_home.png",
+        "pagePath": "pages/index/index",
+        "text": "拼桌"
+      },
+      {
+        "selectedIconPath": "images/tab_menu_select.png",
+        "iconPath": "images/tab_menu.png",
+        "pagePath": "pages/menu/menu",
+        "text": "菜单"
+      },
+      {
+        "selectedIconPath": "images/tab_msg_select.png",
+        "iconPath": "images/tab_msg.png",
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "selectedIconPath": "images/myInfo/my_select.png",
+        "iconPath": "images/myInfo/myInfo.png",
+        "pagePath": "pages/myInfo/myInfo",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
